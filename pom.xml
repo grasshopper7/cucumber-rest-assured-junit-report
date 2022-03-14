@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tech.grasshopper</groupId>
-	<artifactId>rest-assured-report-junit4</artifactId>
-	<version>1.4.0</version>
+	<artifactId>cucumber-rest-assured-junit-report</artifactId>
+	<version>1.1.1</version>
 
 	<properties>
 		<aspectj.version>1.9.6</aspectj.version>
@@ -19,6 +19,18 @@
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>4.4.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.2.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.2.3</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -47,8 +59,8 @@
 		</dependency>
 		<dependency>
 			<groupId>tech.grasshopper</groupId>
-			<artifactId>extentreport-allure-annotation</artifactId>
-			<version>1.0</version>
+			<artifactId>allure-cucumber-mapping-plugin</artifactId>
+			<version>1.0.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
@@ -83,14 +95,13 @@
 						</goals>
 					</execution>
 				</executions>
+
 				<configuration>
 					<systemPropertyVariables>
 						<allure.results.directory>${allure.results.directory}
 						</allure.results.directory>
 					</systemPropertyVariables>
-					<argLine>
-						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-					</argLine>
+					<!-- <parallel>methods</parallel> <useUnlimitedThreads>true</useUnlimitedThreads> -->
 					<properties>
 						<property>
 							<name>listener</name>
@@ -98,18 +109,11 @@
 						</property>
 					</properties>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjweaver</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>tech.grasshopper</groupId>
-				<artifactId>rest-assured-extent-report-plugin</artifactId>
-				<version>1.4.0</version>
+				<artifactId>cucumber-rest-assured-extent-report-plugin</artifactId>
+				<version>1.1.1</version>
 				<executions>
 					<execution>
 						<id>report</id>
@@ -123,18 +127,18 @@
 					<allureResultsDirectory>${allure.results.directory}
 					</allureResultsDirectory>
 					<reportDirectory>${extent.report.directory} </reportDirectory>
-					<reportDirectoryTimeStamp>dd MM yyyy HH mm ss </reportDirectoryTimeStamp>
+					<reportDirectoryTimeStamp>dd MM yyyy HH mm ss
+					</reportDirectoryTimeStamp>
 					<sparkGenerate>true</sparkGenerate>
 					<pdfGenerate>true</pdfGenerate>
-					<sparkConfigFilePath>src/test/resources/spark-config.xml </sparkConfigFilePath>
-					<pdfConfigFilePath>src/test/resources/pdf-config.xml </pdfConfigFilePath>
+					<sparkConfigFilePath>src/test/resources/spark-config.xml
+					</sparkConfigFilePath>
+					<pdfConfigFilePath>src/test/resources/pdf-config.xml
+					</pdfConfigFilePath>
 					<systemInfoFilePath>src/test/resources/systeminfo.properties
 					</systemInfoFilePath>
 					<sparkViewOrder>DASHBOARD,TEST,EXCEPTION,CATEGORY,AUTHOR,DEVICE
 					</sparkViewOrder>
-					<sparkHideLogEvents>
-						true
-					</sparkHideLogEvents>
 				</configuration>
 			</plugin>
 		</plugins>

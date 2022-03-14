@@ -28,6 +28,8 @@
 		<testViewChartLocation>bottom</testViewChartLocation>
 		<!-- custom javascript -->
 
+		<!-- offlineMode>true</offlineMode -->
+
 		<scripts>
 
 <![CDATA[
