@@ -101,7 +101,6 @@
 						<allure.results.directory>${allure.results.directory}
 						</allure.results.directory>
 					</systemPropertyVariables>
-					<!-- <parallel>methods</parallel> <useUnlimitedThreads>true</useUnlimitedThreads> -->
 					<properties>
 						<property>
 							<name>listener</name>
