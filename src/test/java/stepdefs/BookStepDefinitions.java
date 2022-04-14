@@ -12,10 +12,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import tech.grasshopper.filter.ExtentRestAssuredFilter;
 
 public class BookStepDefinitions {
 
@@ -26,7 +26,7 @@ public class BookStepDefinitions {
 
 	@Given("a book exists with an isbn of {word}")
 	public void a_book_exists_with_isbn(String isbn) {
-		request = given().param("q", "isbn:" + isbn).filter(new AllureRestAssured());
+		request = given().param("q", "isbn:" + isbn).body("Hello there").filter(new ExtentRestAssuredFilter());
 	}
 
 	@When("a user retrieves the book by isbn")

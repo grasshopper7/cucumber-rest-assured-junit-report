@@ -5,10 +5,10 @@ import static io.restassured.RestAssured.given;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import tech.grasshopper.filter.ExtentRestAssuredFilter;
 
 public class CityDataStepDefinitions {
 
@@ -22,7 +22,7 @@ public class CityDataStepDefinitions {
 	public void city_air_data_for_london_exists(String city) {
 		cityName = city;
 		request = given().param("token", "1a5d8f027e344fa191b88e966bdb5d4aa4853d4a").cookie("Cookie 1", "cookie one")
-				.cookie("Cookie 2", "cookie two").filter(new AllureRestAssured());
+				.cookie("Cookie 2", "cookie two").filter(new ExtentRestAssuredFilter());
 	}
 
 	@When("retrieve the air data")
