@@ -30,18 +30,7 @@
 
 		<!-- offlineMode>true</offlineMode -->
 
-		<scripts>
-
-<![CDATA[
-$(document).ready(function() {
-
-});
-]]>
-		</scripts>
-		<!-- custom styles -->
-		<styles>
-<![CDATA[
-]]>
-		</styles>
+		<js></js>
+		<css></css>
 	</configuration>
 </extentreports>
