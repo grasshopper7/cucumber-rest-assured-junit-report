@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tech.grasshopper</groupId>
 	<artifactId>cucumber-rest-assured-junit-report</artifactId>
-	<version>2.2.0</version>
+	<version>2.3.0</version>
 
 	<properties>
 		<allure.results.directory>
@@ -99,7 +99,7 @@
 			<plugin>
 				<groupId>tech.grasshopper</groupId>
 				<artifactId>cucumber-rest-assured-extent-report-plugin</artifactId>
-				<version>2.2.0</version>
+				<version>2.3.0</version>
 				<executions>
 					<execution>
 						<id>report</id>
@@ -112,6 +112,9 @@
 				<configuration>
 					<allureResultsDirectory>${allure.results.directory}
 					</allureResultsDirectory>
+					<!-- Comma separated file paths in case of multiple runners -->
+					<!-- <cucumberAllureMappingFiles>target/cucumber-allure1.json, target/cucumber-allure2.json</cucumberAllureMappingFiles> -->
+					<!-- <cucumberAllureMappingFiles>target/cucumber-allure.json </cucumberAllureMappingFiles> -->
 					<reportDirectory>${extent.report.directory} </reportDirectory>
 					<reportDirectoryTimeStamp>dd MM yyyy HH mm ss
 					</reportDirectoryTimeStamp>
